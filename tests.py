@@ -21,6 +21,9 @@ class TestStringCalculator(unittest.TestCase):
     def test_custom_delimiter(self):
         self.assertEqual(StringCalculator.add("//;\n1;2"), 3)
 
+    def test_mulitple_delimiters(self):
+        self.assertEqual(StringCalculator.add("//abc\n1abc3abc4"), 8)
+
     def test_mixed_delimiters(self):
         with self.assertRaises(ValueError) as context:
             StringCalculator.add("//;\n1;2,3")
